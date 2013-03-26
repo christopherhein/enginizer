@@ -1,0 +1,5 @@
+module <%= namespace.camel_case %>
+  def self.version
+    "0.0.1"
+  end
+end

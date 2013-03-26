@@ -1,0 +1,2 @@
+describe <%= namespace.camel_case %>::<%= extension_name.camel_case %> do
+end

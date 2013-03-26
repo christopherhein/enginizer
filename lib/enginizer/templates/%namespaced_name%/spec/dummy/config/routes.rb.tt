@@ -1,0 +1,4 @@
+Rails.application.routes.draw do
+
+  mount <%= namespace.camel_case %>::<%= extension_name.camel_case %>::Engine => "/<%= namespaced_name %>"
+end

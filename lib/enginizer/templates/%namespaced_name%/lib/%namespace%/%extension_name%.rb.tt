@@ -1,0 +1,15 @@
+require "rails/all"
+require "rails/generators"
+
+module <%= namespace.camel_case %>
+  # mattr_accessor :user_class
+  
+  module <%= extension_name.camel_case %>
+  end
+  
+  def self.config &block
+    yield <%= namespace.camel_case %>::Config
+  end
+end
+
+require "<%= namespace %>/<%= extension_name %>/engine"

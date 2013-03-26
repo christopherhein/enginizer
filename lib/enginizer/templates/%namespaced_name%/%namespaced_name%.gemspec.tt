@@ -1,0 +1,28 @@
+$:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
+require "<%= namespace %>/<%= extension_name %>/version"
+
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "<%= @namespaced_name %>"
+  s.version     = <%= namespace.camel_case %>::version
+  s.authors     = ["<%= author %>"]
+  s.email       = ["<%= email %>"]
+  s.homepage    = "TODO: Homepage for self promotion"
+  s.summary     = "TODO: Summary of your engine"
+  s.description = "TODO: Description of your engine"
+
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+
+  s.add_dependency "rails", "~> 3.2.11"
+  # s.add_dependency "coffee-script"
+  # s.add_dependency "sass-rails"
+  # s.add_dependency "haml-rails"
+  # s.add_dependency "jquery-rails"
+  # s.add_dependency "angularjs-rails"
+  # s.add_dependency "ace-rails-ap"
+  # s.add_dependency "bourbon"
+
+  s.add_development_dependency "sqlite3"
+end

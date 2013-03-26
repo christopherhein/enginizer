@@ -1,0 +1,36 @@
+module <%= namespace.camel_case %>
+  module <%= extension_name.camel_case %>
+    class Engine < ::Rails::Engine
+      isolate_namespace <%= namespace.camel_case %>
+      engine_name '<%= namespace %>'
+
+      initializer :append_migrations do |app|
+        app.config.paths["db/migrate"] += config.paths["db/migrate"].expanded unless app.root.to_s.match root.to_s
+      end
+      
+      config.after_initialize do
+        Rails.application.routes_reloader.reload!
+      end
+      
+      initializer "<%= namespace %>.configuration", before: :load_config_initializers do |app|
+        app.config.<%= namespace %> = <%= namespace.camel_case %>::Configuration.new
+        <%= namespace.camel_case %>::Config = app.config.<%= namespace %>
+      end
+
+      config.generators do |g|
+        g.template_engine     :haml
+        g.test_framework      :rspec,
+          request_specs:    false,
+          view_specs:       false, 
+          fixture:          true
+        g.integration_tool    :rspec
+        g.fixture_replacement :factory_girl, dir: "lib/<%= namespace %>/testing_support/factories"
+        g.stylesheets         false
+        g.javascripts         false
+        g.helper              false
+        g.assets              false
+      end
+      
+    end
+  end
+end
