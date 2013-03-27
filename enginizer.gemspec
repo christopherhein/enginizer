@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "enginizer/version"
 
 Gem::Specification.new do |gem|
-  gem.name          = "nfinity_cmd"
+  gem.name          = "enginizer"
   gem.version       = Enginizer::version
   gem.authors       = ["Christopher Hein"]
   gem.email         = ["me@christopherhein.com"]
