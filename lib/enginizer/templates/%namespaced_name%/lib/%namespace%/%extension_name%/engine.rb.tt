@@ -13,7 +13,7 @@ module <%= namespace.camel_case %>
       end
       
       initializer "<%= namespace %>.configuration", before: :load_config_initializers do |app|
-        app.config.<%= namespace %> = <%= namespace.camel_case %>::Configuration.new
+        app.config.<%= namespace %> = <%= namespace.camel_case %>::<%= extension_name.camel_case %>::Configuration.new
         <%= namespace.camel_case %>::Config = app.config.<%= namespace %>
       end
 
