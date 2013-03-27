@@ -1,0 +1,11 @@
+module <%= namespace.camel_case %>
+  module <%= extension_name.camel_case %>
+    class Configuration
+      # attr_accessor :user_class
+      
+      def initialize
+        # @user_class = "<%= namespace.camel_case %>::User"
+      end
+    end
+  end
+end

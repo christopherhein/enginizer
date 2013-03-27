@@ -12,4 +12,5 @@ module <%= namespace.camel_case %>
   end
 end
 
+require "<%= namespace %>/<%= extension_name %>/configuration"
 require "<%= namespace %>/<%= extension_name %>/engine"
